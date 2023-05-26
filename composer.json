@@ -1,0 +1,23 @@
+{
+    "name": "laborb/statamic-notifications",
+    "autoload": {
+        "psr-4": {
+            "Laborb\\StatamicNotifications\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Notifications",
+            "description": "Statamic Notifications addon"
+        },
+        "laravel": {
+            "providers": [
+                "Laborb\\StatamicNotifications\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "laravel-notification-channels/webhook": "^2.4",
+        "laravel-notification-channels/microsoft-teams": "^1.1"
+    }
+}

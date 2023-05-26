@@ -1,0 +1,7 @@
+.publish-field__warning {
+  background: #F5F8FC;
+}
+
+.publish-field__warning .field-inner {
+  display: none;
+}
