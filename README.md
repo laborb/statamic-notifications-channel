@@ -1,6 +1,6 @@
 # Statamic Notifications
 
-> Statamic Notifications is a Statamic addon to get notified on different Statamic events.
+Statamic Notifications is a Statamic addon to get notified on different Statamic events.
 
 ## Features
 

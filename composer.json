@@ -1,5 +1,17 @@
 {
     "name": "laborb/statamic-notifications",
+    "description": "Get notifications on Statamic events",
+    "type": "statamic-addon",
+    "keywords": ["statamic-addon","notifications","events"],
+    "homepage": "https://laborb.de",
+    "authors": [
+        {
+            "name": "Jannis Forsthövel",
+            "email": "jf@laborb.de",
+            "homepage": "https://laborb.de",
+            "role": "Developer"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Laborb\\StatamicNotifications\\": "src"

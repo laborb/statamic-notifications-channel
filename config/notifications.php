@@ -2,6 +2,17 @@
 
 return [
     'path' => base_path('content/addons/notifications.yaml'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Add you own event handlers here to format the output of the notification
+    | to your needs.
+    |--------------------------------------------------------------------------
+    |
+    | The key is the event class and the value is the handler class.
+    | See all Statamic events here: https://statamic.dev/extending/events
+    */
+
     'events' => [
         Statamic\Events\AssetDeleted::class  => Laborb\StatamicNotifications\Handlers\AssetDeletedHandler::class,
         Statamic\Events\AssetUploaded::class => Laborb\StatamicNotifications\Handlers\AssetUploadedHandler::class,
@@ -17,7 +28,7 @@ return [
         'mail' => [
             'label' => 'Email',
             'handle' => 'email_address',
-            'handler' => Laborb\StatamicNotifications\Notifications\Handlers\MailHandler::class,
+            'handler' => MailHandler::class,
         ],
         'slack' => [
             'label' => 'Slack, Mattermost',
