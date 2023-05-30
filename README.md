@@ -1,6 +1,8 @@
-# Statamic Notifications
+# Notifications Channel
 
-Statamic Notifications is a Statamic addon to get notified on different Statamic events.
+This Statamic Addon makes it easy to send notifications to popular chat systems like Slack, Teams or Mattermost. But also email or webhook is possible.
+Typical use cases are sending form submissions to Teams chat or informing a Slack group about a certain alert.
+In contrast to unencrypted emails, Notifications Channel uses https and is therefore especially suitable for sensitive data such as recruitment forms.
 
 ## Features
 
@@ -11,6 +13,7 @@ Supported notification channels:
 - Mattermost
 - Microsoft Teams
 - Webhook
+- more to follow
 
 Supported [Statamic Events](https://statamic.dev/extending/events)
 
@@ -40,7 +43,7 @@ You can access the addon settings in the control panel: `Utilities > Notificatio
 
 You can enable/disable all notifications and enable/disable the built in logging function in the `Settings` tab.
 
-In the `Notification channels` tab you can add notification channels with the according settings on email address or webhook URLs.
+In the `Notifications channels` tab you can add notifications channels with the according settings on email address or webhook URLs.
 
 All settings are displayed as normal Statamic blueprints would be. 
 
