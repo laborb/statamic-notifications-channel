@@ -1,5 +1,5 @@
 {
-    "name": "laborb/statamic-notifications",
+    "name": "laborb/statamic-notifications-channel",
     "description": "Get notifications on Statamic events",
     "type": "statamic-addon",
     "keywords": ["statamic-addon","notifications","events"],
