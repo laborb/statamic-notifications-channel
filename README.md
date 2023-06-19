@@ -34,7 +34,7 @@ Other events can easily be added with a handler class.
 You can search for this addon in the `Tools > Addons` section of the Statamic control panel and click **install**, or run the following command from your project root:
 
 ``` bash
-composer require laborb/statamic-notifications
+composer require laborb/statamic-notifications-channel
 ```
 
 ## How to Use
