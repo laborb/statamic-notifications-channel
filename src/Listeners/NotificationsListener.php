@@ -37,8 +37,6 @@ class NotificationsListener
 
                     $handle = config('statamic.notifications.channels.' . $channel['service'] . '.handle');
 
-                    Log::info('VALUE: ' . print_r($channel[$handle], true));
-
                     Notification::route($channel['service'], $channel[$handle])
                         ->notify(new StatamicNotification($info));
 
