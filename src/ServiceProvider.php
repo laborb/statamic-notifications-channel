@@ -1,10 +1,10 @@
 <?php
 
-namespace Laborb\StatamicNotifications;
+namespace Laborb\StatamicNotificationsChannel;
 
 use Statamic\Providers\AddonServiceProvider;
 use Statamic\Facades\Utility;
-use Laborb\StatamicNotifications\Http\Controllers\Cp\NotificationsController;
+use Laborb\StatamicNotificationsChannel\Http\Controllers\Cp\NotificationsController;
 
 class ServiceProvider extends AddonServiceProvider
 {
@@ -22,7 +22,7 @@ class ServiceProvider extends AddonServiceProvider
 
     protected $listen = [
         'Statamic\Events\*' => [
-            ['Laborb\StatamicNotifications\Listeners\NotificationsListener', 'handle'],
+            ['Laborb\StatamicNotificationsChannel\Listeners\NotificationsListener', 'handle'],
         ]
     ];
 

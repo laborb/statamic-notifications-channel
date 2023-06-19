@@ -1,6 +1,6 @@
 <?php
 
-namespace Laborb\StatamicNotifications\Blueprints;
+namespace Laborb\StatamicNotificationsChannel\Blueprints;
 
 use Statamic\Facades\Blueprint;
 use Statamic\Facades\YAML;

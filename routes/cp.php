@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::namespace('\Laborb\StatamicNotifications\Http\Controllers\Cp')
+Route::namespace('\Laborb\StatamicNotificationsChannel\Http\Controllers\Cp')
     ->prefix('notifications/')
     ->name('laborb.notifications.')
     ->group(function () {

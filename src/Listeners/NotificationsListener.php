@@ -1,10 +1,10 @@
 <?php
 
-namespace Laborb\StatamicNotifications\Listeners;
+namespace Laborb\StatamicNotificationsChannel\Listeners;
 
 use Illuminate\Support\Facades\Notification;
-use Laborb\StatamicNotifications\Blueprints\Notifications;
-use Laborb\StatamicNotifications\Notifications\StatamicNotification;
+use Laborb\StatamicNotificationsChannel\Blueprints\Notifications;
+use Laborb\StatamicNotificationsChannel\Notifications\StatamicNotification;
 use Illuminate\Support\Facades\Log;
 
 class NotificationsListener
@@ -17,11 +17,11 @@ class NotificationsListener
      */
     public function handle($incomingEvent, $data): void
     {
-        if (!Notifications::augmentedValues()['enable_notifications']) {
+        if (!Notifications::values()['enable_notifications']) {
             return;
         }
 
-        $channels = collect(Notifications::augmentedValues()['channels'])->where('enabled', true);
+        $channels = collect(Notifications::values()['channels'])->where('enabled', true);
 
         foreach ($channels as $channel) {
             foreach ($channel['events'] as $event) {
@@ -37,11 +37,13 @@ class NotificationsListener
 
                     $handle = config('statamic.notifications.channels.' . $channel['service'] . '.handle');
 
+                    Log::info('VALUE: ' . print_r($channel[$handle], true));
+
                     Notification::route($channel['service'], $channel[$handle])
                         ->notify(new StatamicNotification($info));
 
-                    if (Notifications::augmentedValues()['log_events'] && $channel['enabled']) {
-                        Log::channel(Notifications::augmentedValues()['log_channel'])->info($incomingEvent . ' notification sent to ' . $channel['service'] . '(' . $channel[$handle] . ')');
+                    if (Notifications::values()['log_events'] && $channel['enabled']) {
+                        Log::channel(Notifications::values()['log_channel'])->info($incomingEvent . ' notification sent to ' . $channel['service'] . '(' . $channel[$handle] . ')');
                     }
                 }
             }

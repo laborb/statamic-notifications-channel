@@ -1,6 +1,6 @@
 <?php
 
-namespace Laborb\StatamicNotifications\Handlers;
+namespace Laborb\StatamicNotificationsChannel\Handlers;
 
 class UserRegisteredHandler {
     public function info($data) {

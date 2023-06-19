@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Laborb\\StatamicNotifications\\": "src"
+            "Laborb\\StatamicNotificationsChannel\\": "src"
         }
     },
     "extra": {
@@ -24,12 +24,13 @@
         },
         "laravel": {
             "providers": [
-                "Laborb\\StatamicNotifications\\ServiceProvider"
+                "Laborb\\StatamicNotificationsChannel\\ServiceProvider"
             ]
         }
     },
     "require": {
         "laravel-notification-channels/webhook": "^2.4",
-        "laravel-notification-channels/microsoft-teams": "^1.1"
+        "laravel-notification-channels/microsoft-teams": "^1.1",
+        "laravel/slack-notification-channel": "^2.5"
     }
 }

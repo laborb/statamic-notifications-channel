@@ -1,6 +1,6 @@
 <?php
 
-namespace Laborb\StatamicNotifications\Notifications;
+namespace Laborb\StatamicNotificationsChannel\Notifications;
 
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;

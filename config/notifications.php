@@ -14,15 +14,15 @@ return [
     */
 
     'events' => [
-        Statamic\Events\AssetDeleted::class  => Laborb\StatamicNotifications\Handlers\AssetDeletedHandler::class,
-        Statamic\Events\AssetUploaded::class => Laborb\StatamicNotifications\Handlers\AssetUploadedHandler::class,
-        Statamic\Events\EntryCreated::class  => Laborb\StatamicNotifications\Handlers\EntryCreatedHandler::class,
-        Statamic\Events\EntrySaved::class   => Laborb\StatamicNotifications\Handlers\EntrySavedHandler::class,
-        Statamic\Events\EntryDeleted::class => Laborb\StatamicNotifications\Handlers\EntryDeletedHandler::class,
-        Statamic\Events\FormSubmitted::class => Laborb\StatamicNotifications\Handlers\FormSubmittedHandler::class,
-        Statamic\Events\UserRegistered::class => Laborb\StatamicNotifications\Handlers\UserRegisteredHandler::class,
-        Statamic\Events\UserSaved::class => Laborb\StatamicNotifications\Handlers\UserSavedHandler::class,
-        Statamic\Events\UserDeleted::class => Laborb\StatamicNotifications\Handlers\UserDeletedHandler::class,
+        Statamic\Events\AssetDeleted::class  => Laborb\StatamicNotificationsChannel\Handlers\AssetDeletedHandler::class,
+        Statamic\Events\AssetUploaded::class => Laborb\StatamicNotificationsChannel\Handlers\AssetUploadedHandler::class,
+        Statamic\Events\EntryCreated::class  => Laborb\StatamicNotificationsChannel\Handlers\EntryCreatedHandler::class,
+        Statamic\Events\EntrySaved::class   => Laborb\StatamicNotificationsChannel\Handlers\EntrySavedHandler::class,
+        Statamic\Events\EntryDeleted::class => Laborb\StatamicNotificationsChannel\Handlers\EntryDeletedHandler::class,
+        Statamic\Events\FormSubmitted::class => Laborb\StatamicNotificationsChannel\Handlers\FormSubmittedHandler::class,
+        Statamic\Events\UserRegistered::class => Laborb\StatamicNotificationsChannel\Handlers\UserRegisteredHandler::class,
+        Statamic\Events\UserSaved::class => Laborb\StatamicNotificationsChannel\Handlers\UserSavedHandler::class,
+        Statamic\Events\UserDeleted::class => Laborb\StatamicNotificationsChannel\Handlers\UserDeletedHandler::class,
     ],
     'channels' => [
         'mail' => [

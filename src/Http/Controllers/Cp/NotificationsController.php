@@ -1,9 +1,9 @@
 <?php
 
-namespace Laborb\StatamicNotifications\Http\Controllers\Cp;
+namespace Laborb\StatamicNotificationsChannel\Http\Controllers\Cp;
 
 use Illuminate\Http\Request;
-use Laborb\StatamicNotifications\Blueprints\Notifications;
+use Laborb\StatamicNotificationsChannel\Blueprints\Notifications;
 use Statamic\Http\Controllers\CP\CpController;
 use Statamic\Facades\File;
 use Statamic\Facades\YAML;
