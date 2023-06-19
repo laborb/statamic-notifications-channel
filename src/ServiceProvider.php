@@ -29,7 +29,7 @@ class ServiceProvider extends AddonServiceProvider
     public function bootAddon()
     {
         Utility::extend(function () {
-            Utility::register('statamic-notifications')
+            Utility::register('notifications-channel')
                 ->title('Notifications')
                 ->navTitle('Notifications')
                 ->description('Create notification channels for Statamic events')

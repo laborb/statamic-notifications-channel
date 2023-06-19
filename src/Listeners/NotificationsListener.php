@@ -17,11 +17,11 @@ class NotificationsListener
      */
     public function handle($incomingEvent, $data): void
     {
-        if (!Notifications::values()['enable_notifications']) {
+        if (!Notifications::augmentedValues()['enable_notifications']) {
             return;
         }
 
-        $channels = collect(Notifications::values()['channels'])->where('enabled', true);
+        $channels = collect(Notifications::augmentedValues()['channels'])->where('enabled', true);
 
         foreach ($channels as $channel) {
             foreach ($channel['events'] as $event) {
@@ -40,8 +40,8 @@ class NotificationsListener
                     Notification::route($channel['service'], $channel[$handle])
                         ->notify(new StatamicNotification($info));
 
-                    if (Notifications::values()['log_events'] && $channel['enabled']) {
-                        Log::channel(Notifications::values()['log_channel'])->info($incomingEvent . ' notification sent to ' . $channel['service'] . '(' . $channel[$handle] . ')');
+                    if (Notifications::augmentedValues()['log_events'] && $channel['enabled']) {
+                        Log::channel(Notifications::augmentedValues()['log_channel'])->info($incomingEvent . ' notification sent to ' . $channel['service'] . '(' . $channel[$handle] . ')');
                     }
                 }
             }
