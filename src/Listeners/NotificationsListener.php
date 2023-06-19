@@ -17,7 +17,9 @@ class NotificationsListener
      */
     public function handle($incomingEvent, $data): void
     {
-        if (!Notifications::values()['enable_notifications']) {
+        $active = Notifications::values()['enable_notifications'] ?? false;
+        
+        if (!$active) {
             return;
         }
 
