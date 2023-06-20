@@ -2,7 +2,8 @@
 
 return [
     'general' => [
-        'headline' => 'Notifications',
+        'headline' => 'Notifications Channel',
+        'description' => 'Configure notifications for Statamic events',
     ],
     'permissions' => [
         'settings'                  => 'Notification settings',
