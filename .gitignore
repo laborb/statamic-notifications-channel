@@ -1,4 +1,5 @@
 node_modules
 vendor
 mix-manifest.json
+.phpunit.cache
 .tmp

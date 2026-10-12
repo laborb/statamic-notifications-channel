@@ -2,15 +2,11 @@
     "name": "laborb/statamic-notifications-channel",
     "description": "Get notifications on Statamic events",
     "type": "statamic-addon",
-    "keywords": [
-        "statamic-addon",
-        "notifications",
-        "events"
-    ],
+    "keywords": ["statamic-addon","notifications","events"],
     "homepage": "https://laborb.de",
     "authors": [
         {
-            "name": "Jannis Forsth\u00f6vel",
+            "name": "Jannis Forsthövel",
             "email": "jf@laborb.de",
             "homepage": "https://laborb.de",
             "role": "Developer"
@@ -19,6 +15,11 @@
     "autoload": {
         "psr-4": {
             "Laborb\\StatamicNotificationsChannel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laborb\\StatamicNotificationsChannel\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -40,6 +41,11 @@
         "laravel/slack-notification-channel": "^3.2",
         "statamic/cms": "^6.0"
     },
+    "require-dev": {
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^11.5"
+    },
     "config": {
         "platform": {
             "php": "8.3.0"
@@ -47,5 +53,8 @@
         "allow-plugins": {
             "pixelfear/composer-dist-plugin": true
         }
+    },
+    "scripts": {
+        "test": "@php vendor/bin/phpunit"
     }
 }

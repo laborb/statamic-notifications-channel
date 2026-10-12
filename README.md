@@ -67,6 +67,27 @@ All settings are displayed as normal Statamic blueprints would be.
 
 You can add new Statamic events by adding an EventHandler class in the config file. You can then format the output in your own class. 
 
+## Development and tests
+
+Install dependencies and run the test suite:
+
+```bash
+composer install
+composer test
+```
+
+Tests use PHPUnit and Statamic's `AddonTestCase` with Orchestra Testbench. Every test uses an isolated temporary directory for settings and content. Mail and queued jobs are faked, and HTTP transports use Guzzle mocks; tests do not send notifications to external services.
+
+The suite covers the native Statamic 6 publish form, settings persistence and validation, existing YAML compatibility, all nine event handlers, channel selection, notification payloads, and logging. The lockfile is resolved for PHP 8.3 so the same dependencies install on every supported PHP version.
+
+For a browser smoke test in a test project:
+
+1. Open `Utilities > Notifications` and check the `Notification channels` and `Settings` tabs.
+2. Add a channel, select an event, enter its recipient and save. Reload and verify that it persists.
+3. Switch between Email, Slack/Mattermost, Teams and Webhook and verify the matching recipient field. Edit and delete a channel, save and reload.
+4. Enter an invalid email address or webhook URL and verify that saving shows an error and preserves the previous settings.
+5. Disable notifications in `Settings` and verify the warning in `Notification channels`. Enable logging and verify the log-channel selector.
+
 # Support
 
 If you encounter any issues please open an issue in the Github repo.
