@@ -7,38 +7,23 @@ use Laborb\StatamicNotificationsChannel\Blueprints\Notifications;
 use Statamic\Http\Controllers\CP\CpController;
 use Statamic\Facades\File;
 use Statamic\Facades\YAML;
+use Statamic\CP\PublishForm;
 
 final class NotificationsController extends CpController
 {
-    protected $path;
-
-    public function __construct(Request $request)
-    {
-        parent::__construct($request);
-    }
-
     public function index()
     {
-        $blueprint = Notifications::blueprint();
-        $data = Notifications::values();
-
-        $fields = $blueprint->fields()->addValues($data)->preProcess();
-
-        return view('notifications::cp.settings.index', [
-            'blueprint' => $blueprint->toPublishArray(),
-            'values'    => $fields->values(),
-            'meta'      => $fields->meta(),
-        ]);
+        return PublishForm::make(Notifications::blueprint())
+            ->title(__('statamic-notifications-channel::cp.general.headline'))
+            ->values(Notifications::values())
+            ->asConfig()
+            ->submittingTo(cp_route('laborb.notifications.update'), 'PUT');
     }
 
     public function update(Request $request)
     {
-        $blueprint = Notifications::blueprint();
+        $values = PublishForm::make(Notifications::blueprint())->submit($request->all());
 
-        $fields = $blueprint->fields()->addValues($request->all());
-
-        $fields->validate();
-
-        File::put(config('statamic.notifications.path'), YAML::dump($fields->process()->values()->all()));
+        File::put(config('statamic.notifications.path'), YAML::dump($values));
     }
 }
