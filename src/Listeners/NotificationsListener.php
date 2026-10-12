@@ -17,16 +17,17 @@ class NotificationsListener
      */
     public function handle($incomingEvent, $data): void
     {
-        $active = Notifications::values()['enable_notifications'] ?? false;
+        $settings = Notifications::values();
+        $active = $settings['enable_notifications'] ?? false;
         
         if (!$active) {
             return;
         }
 
-        $channels = collect(Notifications::values()['channels'])->where('enabled', true);
+        $channels = collect($settings['channels'] ?? [])->where('enabled', true);
 
         foreach ($channels as $channel) {
-            foreach ($channel['events'] as $event) {
+            foreach ($channel['events'] ?? [] as $event) {
                 if ($event == $incomingEvent) {
                     if ($channel['service'] == 'webhook') {
                         $info = [
@@ -42,8 +43,8 @@ class NotificationsListener
                     Notification::route($channel['service'], $channel[$handle])
                         ->notify(new StatamicNotification($info));
 
-                    if (Notifications::values()['log_events'] && $channel['enabled']) {
-                        Log::channel(Notifications::values()['log_channel'])->info($incomingEvent . ' notification sent to ' . $channel['service'] . '(' . $channel[$handle] . ')');
+                    if ($settings['log_events'] ?? false) {
+                        Log::channel($settings['log_channel'] ?? 'single')->info($incomingEvent . ' notification sent to ' . $channel['service'] . '(' . $channel[$handle] . ')');
                     }
                 }
             }

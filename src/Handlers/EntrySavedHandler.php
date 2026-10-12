@@ -4,6 +4,6 @@ namespace Laborb\StatamicNotificationsChannel\Handlers;
 
 class EntrySavedHandler {
     public function info($data) {
-        return '**' . $data[0]->entry->slug . '** (' . $data[0]->entry->id . ')' . ' in collection **' . $data[0]->entry->collection . '**';
+        return '**' . $data[0]->entry->slug() . '** (' . $data[0]->entry->id() . ')' . ' in collection **' . $data[0]->entry->collectionHandle() . '**';
     }
 }

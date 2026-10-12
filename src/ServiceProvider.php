@@ -8,14 +8,8 @@ use Laborb\StatamicNotificationsChannel\Http\Controllers\Cp\NotificationsControl
 
 class ServiceProvider extends AddonServiceProvider
 {
-    protected $viewNamespace = 'notifications';
-
     protected $routes = [
         'cp'  => __DIR__.'/../routes/cp.php',
-    ];
-
-    protected $stylesheets = [
-        __DIR__.'/../resources/css/style.css'
     ];
 
     protected $translations = true;
@@ -44,10 +38,10 @@ class ServiceProvider extends AddonServiceProvider
             __DIR__.'/../config/notifications.php' => config_path('statamic/notifications.php'),
         ], 'laborb-notifications-config');
 
-        if (!file_exists(base_path(config('statamic.notifications.path')))) {
+        if (!file_exists(config('statamic.notifications.path'))) {
             $this->publishes([
                 __DIR__.'/../content/addons/notifications.yaml' => config('statamic.notifications.path'),
             ], 'laborb-notifications-content');
-        };
+        }
     }
 }

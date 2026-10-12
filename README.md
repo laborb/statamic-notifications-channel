@@ -31,11 +31,27 @@ Other events can easily be added with a handler class.
 
 ## How to Install
 
-You can search for this addon in the `Tools > Addons` section of the Statamic control panel and click **install**, or run the following command from your project root:
+Version compatibility:
+
+1. **Addon 2.x:** Statamic 6, Laravel 12 and PHP 8.3 or newer.
+2. **Addon 1.x:** the existing release line for Statamic 5 projects. Keep the Composer requirement at `^1.1` in these projects.
+
+Install the Statamic 6 version from your project root:
 
 ``` bash
-composer require laborb/statamic-notifications-channel
+composer require laborb/statamic-notifications-channel:^2.0
 ```
+
+The 2.x release must be published before this command can resolve it. This repository prepares that release; it does not publish it automatically.
+
+For the Statamic boilerplate, change `laborb/statamic-notifications-channel` from `^1.1` to `^2.0` after publication and run:
+
+```bash
+composer update laborb/statamic-notifications-channel --with-dependencies
+php artisan statamic:install
+```
+
+Use `ddev composer` and `ddev php` for these commands in a DDEV project. Existing `content/addons/notifications.yaml` settings and published configuration can be reused without a data migration.
 
 ## How to Use
 
