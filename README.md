@@ -78,7 +78,7 @@ composer test
 
 Tests use PHPUnit and Statamic's `AddonTestCase` with Orchestra Testbench. Every test uses an isolated temporary directory for settings and content. Mail and queued jobs are faked, and HTTP transports use Guzzle mocks; tests do not send notifications to external services.
 
-The suite covers the native Statamic 6 publish form, settings persistence and validation, existing YAML compatibility, all nine event handlers, channel selection, notification payloads, and logging. The lockfile is resolved for PHP 8.3 so the same dependencies install on every supported PHP version.
+The suite covers the native Statamic 6 publish form, settings persistence and validation, existing YAML compatibility, all nine event handlers, channel selection, notification payloads, and logging. GitHub Actions runs it on every push and pull request under PHP 8.3, 8.4 and 8.5, using the committed Composer lockfile. The lockfile is resolved for PHP 8.3 so the same dependencies install on every supported PHP version.
 
 For a browser smoke test in a test project:
 
